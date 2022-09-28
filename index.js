@@ -1,20 +1,10 @@
 // Import a module
 const http = require('http')
 const url = require('url')
+const qs = require('querystring')
+const handles = require('./handles')
 
 /*
-// Declare an http server
-http.createServer(function (req, res) {
-
-  // Write a response header
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-
-  // Write a response content
-  res.end('Hello World\n');
-
-// Start the server
-}).listen(8080)*/
-
 // Define a string constant concatenating strings
 const content = '<!DOCTYPE html>' +
 '<html>' +
@@ -26,17 +16,7 @@ const content = '<!DOCTYPE html>' +
 '       <p>Hello there!</p>' +
 '    </body>' +
 '</html>'
+*/
 
-
-const serverHandle = function (req, res) {
-  // Retrieve and print the current path
-  const path = url.parse(req.url).pathname;
-  console.log(path);
-
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  res.write(path);
-  res.end();
-}
-
-const server = http.createServer(serverHandle);
+const server = http.createServer(handles.serverHandle);
 server.listen(8080)
