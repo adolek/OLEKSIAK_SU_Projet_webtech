@@ -1,11 +1,9 @@
-# Projet Webtech
+# Previous Labs
 
-## Etat d'avancement
+You will find here our labs until lab 3.
 
-Lab 2 partie 1 à 7
+## Authors
 
-### Auteurs
-
-* Adrien OLEKSIAK <https://github.com/adrienoleksiak>
-* David SU <https://github.com/dvdbx>
+* *Adrien OLEKSIAK, <https://github.com/adrienoleksiak>*
+* *David SU, <https://github.com/dvdbx>*
 

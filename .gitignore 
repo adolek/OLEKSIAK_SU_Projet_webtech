@@ -1,0 +1,11 @@
+#node modules
+node_modules
+
+# Mac crap
+.DS_Store
+
+# next.js
+/.next/
+
+# local env files
+.env*.local

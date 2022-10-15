@@ -1,6 +1,0 @@
-. next.js
-#node modules
-node_modules
-
-# Mac crap
-.DS_Store
