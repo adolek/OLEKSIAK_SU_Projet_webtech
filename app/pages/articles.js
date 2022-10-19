@@ -9,7 +9,11 @@ function Articles() {
             {data.map(article => {
                 return (
                     <ul>
-                         <li>id : <Link href="/articles/{article.id}">
+                         <li>id : <Link href=
+                          {{
+                            pathname: '/article/[id]',
+                            query: { id: article.id},
+                          }}>
                                 <a>{article.id}</a>
                             </Link></li>
                          <li>title : {article.title}</li>
