@@ -1,29 +1,62 @@
-import React from 'react';
-import Head from 'next/head'
-
+import React from "react";
+import Head from "next/head";
 
 function Contacts() {
-    return(
-        <React.Fragment>
-        <h1>Here is our contacts :</h1>
-        <ul>
-            <li>David SU - <a href="mailto:david.su@edu.ece.fr">david.su@edu.ece.fr</a></li>
-            <li>Adrien OLEKSIAK - <a href="mailto:adrien.oleksiaksachoux@edu.ece.fr">adrien.oleksiaksachoux@edu.ece.fr</a></li>
-        </ul>
-        </React.Fragment>
-    );
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+      <Head>
+        <title>contacts</title>
+      </Head>
+
+      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+        <h1 className="wt-title">Our contacts :</h1>
+        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
+          <div className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600">
+            <h2 className="text-2xl font-bold">David</h2>
+            <h3 className="mt-4 text-xl">
+              {" "}
+              <a href="https://github.com/Dvdbx"> &rarr; github: Dvdbx</a>
+            </h3>
+            <h3 className="mt-4 text-xl">
+              {" "}
+              <a href="mailto:davidboxiang.su@edu.ece.fr">
+                {" "}
+                &rarr; mail: davidboxiang.su@edu.ece.fr
+              </a>
+            </h3>
+          </div>
+          <div className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600">
+            <h2 className="text-2xl font-bold">Adrien</h2>
+            <h3 className="mt-4 text-xl">
+              {" "}
+              <a href="https://github.com/adrienoleksiak">
+                {" "}
+                &rarr; github: adrienoleksiak
+              </a>
+            </h3>
+            <h3 className="mt-4 text-xl">
+              {" "}
+              <a href="mailto:adrien.oleksiaksachoux@edu.ece.fr">
+                {" "}
+                &rarr; mail: adrien.oleksiaksachoux@edu.ece.fr
+              </a>
+            </h3>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
 }
 
 function App() {
-    return (
-      <div>
-        <Head>
-            <title>Nos contacts</title>
-        </Head>
-        <Contacts/>
-      
-      </div>
-    );
-  }
-  
+  return (
+    <div>
+      <Head>
+        <title>Nos contacts</title>
+      </Head>
+      <Contacts />
+    </div>
+  );
+}
+
 export default App;
