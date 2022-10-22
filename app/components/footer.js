@@ -1,6 +1,8 @@
 function Footer() {
     return (
-      <div>2022 © Copyright. All rights reserved. Made by Adrien Oleksiak and David Su.</div>
+      <div className="flex h-24 w-full items-center justify-center border-t">
+        2022 © Copyright. All rights reserved. Made by Adrien Oleksiak and David Su.
+      </div>
     )
   }
   
