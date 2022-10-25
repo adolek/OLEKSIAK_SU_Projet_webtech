@@ -2,18 +2,36 @@
 
 ## Motivation
 
-To create a website project using node.js, react, and tailwinds CSS
+Learn how to create a beautiful website using different technologies
 
 ## What can you find here ?
 
-1. Our project (building it labs after labs since lab 4)
+Project using technologies :
+- [node.js](https://nodejs.org/en/about/)
+- [react](https://reactjs.org/docs/getting-started.html)
+- [tailwinds CSS](https://tailwindcss.com/)
+
+## What we did?
+
+1. Our project app (building it labs after labs since lab 4)
 2. Our previous labs (until lab 3)
 
 ## Installation
 
-```bash
-npm install
-```
+Clone this repository, from your local machine:
+  ```
+  git clone https://github.com/adrienoleksiak/OLEKSIAK_SU_Projet_webtech
+  ```
+
+Go to the project repository:
+  ```
+  cd project
+  ```
+  
+Install with :
+  ```
+  npm install
+  ```
 
 ## Development
 
@@ -33,5 +51,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Authors
 
-- _Adrien OLEKSIAK, <https://github.com/adrienoleksiak>_
-- _David SU, <https://github.com/dvdbx>_
+- [Adrien OLEKSIAK](https://github.com/adrienoleksiak)
+- [David SU](https://github.com/dvdbx)
