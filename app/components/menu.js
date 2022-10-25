@@ -7,7 +7,7 @@ const Menu = () => {
   const [colorTheme, setTheme] = useDarkMode();
 
   return (
-    <nav className="relative w-full flex sm:justify-center space-x-4 flex-wrap items-center justify-between py-3 bg-gray-50 dark:bg-gray-700 hover:text-gray-700 focus:text-gray-700 shadow-lg">
+    <nav className="relative w-full flex sm:justify-center space-x-4 flex-wrap items-center justify-between py-3 bg-gray-100 dark:bg-gray-700 hover:text-gray-700 focus:text-gray-700 shadow-lg">
       {[
         ["Home", "/"],
         ["Articles", "/articles"],

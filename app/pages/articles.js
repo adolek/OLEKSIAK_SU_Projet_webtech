@@ -7,7 +7,7 @@ function Articles() {
     return (<div >
             {data.map(article => {
                 return (
-                  <div className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600">
+                  <div className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
                     <ul class="italic">
                       <li>
                         id :{" "}
