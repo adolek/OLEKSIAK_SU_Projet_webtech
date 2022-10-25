@@ -4,10 +4,7 @@ import Link from 'next/link'
 
 
 function Articles() {
-    return (
-
-      
-        <div >
+    return (<div >
             {data.map(article => {
                 return (
                   <div className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600">
@@ -43,7 +40,7 @@ function App() {
       <Head>
         <title>Articles</title>
       </Head>
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center dark:text-gray-50">
       <h1 className="py-5 text-transparent bg-clip-text text-center font-bold text-8xl bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">Our articles</h1>
 
         

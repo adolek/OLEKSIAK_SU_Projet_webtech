@@ -4,8 +4,10 @@ import Footer from "./footer";
 export default function Layout({ children }) {
   return (
     <>
-      <Menu />
+      <Menu className="bg-grey-800"/>
+      <div className="bg-grey-800">
       <main>{children}</main>
+      </div>
       <Footer />
     </>
   );
