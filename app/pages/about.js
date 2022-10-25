@@ -9,7 +9,7 @@ function App() {
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="wt-title">About the creators :</h1>
+      <h1 className="py-5 text-transparent bg-clip-text text-center font-bold text-8xl bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">About us</h1>
 
         <p className="mt-3 text-2xl">
           Just two students working hard to create this website.

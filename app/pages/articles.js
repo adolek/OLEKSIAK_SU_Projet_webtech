@@ -5,6 +5,8 @@ import Link from 'next/link'
 
 function Articles() {
     return (
+
+      
         <div >
             {data.map(article => {
                 return (
@@ -42,12 +44,9 @@ function App() {
         <title>Articles</title>
       </Head>
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="wt-title">
-         Articles :
-        </h1>
-        <p className="mt-3 text-2xl">
-           This is all our articles :
-        </p>
+      <h1 className="py-5 text-transparent bg-clip-text text-center font-bold text-8xl bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">Our articles</h1>
+
+        
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
               <Articles/>
         </div>

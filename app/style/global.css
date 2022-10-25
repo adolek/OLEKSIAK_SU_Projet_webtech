@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.wt-title {
-    @apply text-3xl font-bold underline mb-10;
+
+
+.text-gradient {
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+    
+
+
 

@@ -3,15 +3,12 @@ import Head from 'next/head'
 
 class Welcome extends React.Component {
   render() {
-    return <h1 >Welcome </h1>;
+    return <p className="mt-3 text-2xl">
+       Welcome, we are {this.props.name}, this is our first website
+    </p>;
   }
 }
 
-class Text extends React.Component {
-  render() {
-    return <p > We are {this.props.name}, this is our first website </p>;
-  }
-}
 
 function App() {
   return (
@@ -21,11 +18,9 @@ function App() {
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="wt-title">Home</h1>
+        <h1 className="py-5 text-transparent bg-clip-text text-center font-bold text-8xl bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">Home</h1>
 
-        <p className="mt-3 text-2xl">
-          Welcome, we are Adrien and David, this is our first website
-        </p>
+        <Welcome name="Adrien and David" />
 
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
           <a
