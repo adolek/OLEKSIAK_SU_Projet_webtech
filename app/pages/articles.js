@@ -24,7 +24,7 @@ const Articles = ({ articles }) => {
               <Link href={"/article/" + article.id} key={article.id}>
                 <a>
                   <h3 className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
-                    {article.id}
+                    {article.title}
                   </h3>
                 </a>
               </Link>

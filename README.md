@@ -2,9 +2,9 @@
 
 ## Motivation
 
-Learn how to create a beautiful website using different technologies
+Learn how to create a beautiful website using different technologies.
 
-## What can you find here ?
+## What can you find here?
 
 Project using technologies :
 - [node.js](https://nodejs.org/en/about/)
@@ -19,17 +19,17 @@ Project using technologies :
 ## Installation
 
 Clone this repository, from your local machine:
-  ```
+  ```bash
   git clone https://github.com/adrienoleksiak/OLEKSIAK_SU_Projet_webtech
   ```
 
 Go to the project repository:
-  ```
+  ```bash
   cd project
   ```
   
 Install with :
-  ```
+  ```bash
   npm install
   ```
 
