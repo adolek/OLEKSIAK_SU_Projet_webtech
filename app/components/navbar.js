@@ -1,13 +1,17 @@
 import React from "react";
+import Image from "next/image";
 import useDarkMode from "../hooks/useDarkMode";
 import { BsSun } from "react-icons/bs";
 import { FiMoon } from "react-icons/fi";
 
-const Menu = () => {
+const Navbar = () => {
   const [colorTheme, setTheme] = useDarkMode();
 
   return (
     <nav className="relative w-full flex sm:justify-center space-x-4 flex-wrap items-center justify-between py-3 bg-gray-100 dark:bg-gray-700 hover:text-gray-700 focus:text-gray-700 shadow-lg">
+      <div className="logo">
+        <Image src="/ece.png" width={120} height={45}/>
+      </div>
       {[
         ["Home", "/"],
         ["Articles", "/articles"],
@@ -21,7 +25,6 @@ const Menu = () => {
           {title}
         </a>
       ))}
-
       {colorTheme === "light" ? (
           <button
             onClick={() => setTheme("light")}
@@ -37,9 +40,7 @@ const Menu = () => {
             <FiMoon />
           </button>
         )}
-
     </nav>
   );
 }
-
-export default Menu;
+export default Navbar;
