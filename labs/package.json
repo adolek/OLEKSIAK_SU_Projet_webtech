@@ -4,11 +4,8 @@
   "description": "lab 2 de web",
   "main": "index.js",
   "scripts": {
-   
-    "dev": "next dev",
-    "build": "next build", 
-    "start": "next start",
-    "lint": "next lint"
+    "start": "node index.js",
+    "develop": "nodemon index.js"
   },
   "keywords": [],
   "author": "Adrien Oleksiak, David Su",
