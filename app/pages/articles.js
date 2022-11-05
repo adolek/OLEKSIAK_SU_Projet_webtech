@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { data } from "./data";
+import { data } from "../components/data";
 
 export const getStaticProps = async () => {
   return {

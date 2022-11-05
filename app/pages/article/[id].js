@@ -1,4 +1,4 @@
-import { data } from "../data";
+import { data } from "../../components/data";
 
 export const getStaticProps = async ({ params }) => {
   const datas = data.filter((p) => p.id.toString() == params.id);
