@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 import { data } from "../components/data";
+import { useContext } from "react";
+import { UserContext } from "./userContext";
 
 export const getStaticProps = async () => {
   return {
@@ -9,11 +11,17 @@ export const getStaticProps = async () => {
 };
 
 const Articles = ({ articles }) => {
+  const { user } = useContext(UserContext);
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
         <title>Articles</title>
       </Head>
+      <div className="py-5 bg-grey-800 dark:text-gray-50">
+        <pre>{JSON.stringify(user, null, 2)}</pre>
+      </div>
+
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center dark:text-gray-50">
         <h1 className="py-5 text-transparent bg-clip-text text-center font-bold text-6xl bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
           All Articles :{" "}
