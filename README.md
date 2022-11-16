@@ -2,14 +2,14 @@
 
 ## Motivation
 
-Learn how to create a beautiful website using different technologies.
+Learn how to create a beautiful website using modern technologies.
 
-## What can you find here?
+## Our stack
 
 Project using technologies :
-- [node.js](https://nodejs.org/en/about/)
-- [react](https://reactjs.org/docs/getting-started.html)
-- [tailwinds CSS](https://tailwindcss.com/)
+- [Node.js](https://nodejs.org/en/about/)
+- [React](https://reactjs.org/docs/getting-started.html)
+- [Tailwinds CSS](https://tailwindcss.com/)
 
 ## What we did?
 
@@ -25,7 +25,7 @@ Clone this repository, from your local machine:
 
 Go to the project repository:
   ```bash
-  cd project
+  cd app
   ```
   
 Install with :
