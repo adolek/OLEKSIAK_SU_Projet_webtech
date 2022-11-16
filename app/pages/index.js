@@ -23,7 +23,7 @@ function App() {
         <title>Home</title>
       </Head>
       <div className="py-5 bg-grey-800 dark:text-gray-50">
-        <pre>{JSON.stringify(user, null, 2)}</pre>
+        Hello ! {JSON.stringify(user)}
       </div>
       {user ? (
         <button
