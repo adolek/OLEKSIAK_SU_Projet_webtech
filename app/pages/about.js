@@ -1,4 +1,5 @@
 import Head from "next/head";
+import React from "react";
 import { useContext } from "react";
 import { UserContext } from "./userContext";
 
@@ -25,14 +26,39 @@ function App() {
         </p>
 
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
+          <a className="mt-6 w-96 rounded-xl border p-6 text-left">
             <h3 className="text-2xl font-bold">Adrien </h3>
+            <h3 className="mt-4 text-xl hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
+              {" "}
+              <a href="https://github.com/adrienoleksiak">
+                {" "}
+                &rarr; github: adrienoleksiak
+              </a>
+            </h3>
+            <h3 className="mt-4 text-xl hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
+              {" "}
+              <a href="mailto:adrien.oleksiaksachoux@edu.ece.fr">
+                {" "}
+                &rarr; mail: adrien.oleksiaksachoux@edu.ece.fr
+              </a>
+            </h3>
             <p className="mt-4 text-xl">
               Like to code website, going out and have fun
             </p>
           </a>
-          <a className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
+          <a className="mt-6 w-96 rounded-xl border p-6 text-left">
             <h3 className="text-2xl font-bold">David </h3>
+            <h3 className="mt-4 text-xl hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
+              {" "}
+              <a href="https://github.com/Dvdbx"> &rarr; github: Dvdbx</a>
+            </h3>
+            <h3 className="mt-4 text-xl hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-6000">
+              {" "}
+              <a href="mailto:davidboxiang.su@edu.ece.fr">
+                {" "}
+                &rarr; mail: davidboxiang.su@edu.ece.fr
+              </a>
+            </h3>
             <p className="mt-4 text-xl">
               Like to learn, chill at home and read manga
             </p>
