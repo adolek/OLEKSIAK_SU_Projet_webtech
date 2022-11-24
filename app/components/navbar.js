@@ -17,7 +17,8 @@ const Navbar = () => {
         ["Home", "/"],
         ["Articles", "/articles"],
         ["About", "/about"],
-        ["Contacts", "/contacts"],
+        ["Contact Form", "/contact-form"],
+        ["Contacts", "/contact"],
       ].map(([title, url]) => (
         <div className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:text-slate-900 dark:text-gray-50 dark:hover:text-white">
           <Link href={url}>{title}</Link>

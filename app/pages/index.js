@@ -3,7 +3,6 @@ import Head from "next/head";
 import { useContext } from "react";
 import { UserContext } from "./userContext";
 import { login } from "../components/login";
-import supabase from "../supabaseClient";
 
 class Welcome extends React.Component {
   render() {
@@ -17,7 +16,6 @@ class Welcome extends React.Component {
 
 function App() {
   const { user, setUser } = useContext(UserContext);
-  console.log(supabase);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center  ">
@@ -25,7 +23,7 @@ function App() {
         <title>Home</title>
       </Head>
       <div className="py-5 bg-grey-800 dark:text-gray-50">
-        Hello ! {JSON.stringify(user)}
+        Hello {JSON.stringify(user)} !
       </div>
       {user ? (
         <button

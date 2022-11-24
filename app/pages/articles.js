@@ -19,7 +19,7 @@ const Articles = ({ articles }) => {
         <title>Articles</title>
       </Head>
       <div className="py-5 bg-grey-800 dark:text-gray-50">
-        Hello ! {JSON.stringify(user, null, 2)}
+        Hello {JSON.stringify(user, null, 2)} !
       </div>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center dark:text-gray-50">
