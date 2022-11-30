@@ -13,7 +13,7 @@ function App() {
       </Head>
 
       <div className="py-5 bg-grey-800 dark:text-gray-50">
-        Hello {JSON.stringify(user, null, 2)} !
+        Hello {user?.username} !
       </div>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center dark:text-gray-50">

@@ -13,7 +13,7 @@ const ContactsForm = () => {
 
   useEffect(() => {
     const fetchContacts = async () => {
-      const { data, error } = await supabase.from("contacts").select();
+      const { data, error } = await supabase.from("contacts").select('*');
 
       if (error) {
         setContacts(null);
@@ -34,7 +34,7 @@ const ContactsForm = () => {
       </Head>
 
       <div className="py-5 bg-grey-800 dark:text-gray-50">
-        Hello ! {JSON.stringify(user, null, 2)}
+        Hello {user?.username}
       </div>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
