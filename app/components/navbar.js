@@ -4,14 +4,47 @@ import useDarkMode from "../hooks/useDarkMode";
 import { BsSun } from "react-icons/bs";
 import { FiMoon } from "react-icons/fi";
 import Link from "next/link.js";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [colorTheme, setTheme] = useDarkMode();
 
+  const [user, setUser] = useState();
+  const [error, setError] = useState();
+
+  /*useEffect(() => {
+    fetch("http://localhost:3000/api/profile")
+      .then((res) => res.json())
+      .then((data) => setUser(data));
+  }, []);*/
+
+  useEffect(() => {
+    async function fetchUser() {
+      try {
+        const res = await fetch("http://localhost:3000/api/profile");
+        const data = await res.json();
+        setUser(data);
+      } catch (err) {
+        console.error(err);
+        setError(error);
+      }
+    }
+    fetchUser();
+  }, []);
+
+  if (!user) {
+    return <p>loading...</p>;
+  }
+
+  if (error) {
+    return <p> Error</p>;
+  }
+
   return (
-    <nav className="relative w-full flex sm:justify-center space-x-4 flex-wrap items-center justify-between py-3 bg-gray-100 dark:bg-gray-700 hover:text-gray-700 focus:text-gray-700 shadow-lg">
+    <nav className="relative w-full flex sm:justify-center space-x-4 flex-wrap items-center justify-between py-3 bg-gray-100 dark:bg-gray-700 focus:text-gray-700 shadow-lg">
       <div className="logo">
         <Image src="/ece.png" width={120} height={45} />
+        User : {user?.username}
       </div>
       {[
         ["Home", "/"],

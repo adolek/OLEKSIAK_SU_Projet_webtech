@@ -45,11 +45,9 @@ const ContactsForm = () => {
           <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full dark:text-gray-50">
             {contacts.map((contact) => (
               <Link href={"/contact/" + contact.id} key={contact.id}>
-                <a>
-                  <h3 className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
-                    {contact.firstname} {contact.lastname}
-                  </h3>
-                </a>
+                <h3 className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
+                  {contact.firstname} {contact.lastname}
+                </h3>
               </Link>
             ))}
           </div>
