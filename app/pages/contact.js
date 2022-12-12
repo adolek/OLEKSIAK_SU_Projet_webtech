@@ -13,7 +13,7 @@ const ContactsForm = () => {
 
   useEffect(() => {
     const fetchContacts = async () => {
-      const { data, error } = await supabase.from("contacts").select('*');
+      const { data, error } = await supabase.from("contacts").select("*");
 
       if (error) {
         setContacts(null);
@@ -43,13 +43,17 @@ const ContactsForm = () => {
         </h1>
         {contacts && (
           <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full dark:text-gray-50">
-            {contacts.map((contact) => (
-              <Link href={"/contact/" + contact.id} key={contact.id}>
-                <h3 className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
-                  {contact.firstname} {contact.lastname}
-                </h3>
-              </Link>
-            ))}
+            <div>
+              {contacts.map((contact) => (
+                <Link href={"/contact/" + contact.id} key={contact.id}>
+                  <div className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
+                    <h1>
+                      Name: {contact.firstname} {contact.lastname}
+                    </h1>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         )}
       </main>
