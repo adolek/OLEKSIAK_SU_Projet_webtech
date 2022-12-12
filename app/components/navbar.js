@@ -48,10 +48,10 @@ const Navbar = () => {
       </div>
       {[
         ["Home", "/"],
-        ["Articles", "/articles"],
+        ["Articles", "/article"],
+        ["Create article", "/createArticle"],
         ["About", "/about"],
-        ["Contact Form", "/contact-form"],
-        ["Contacts", "/contact"],
+        ["Contact us", "/contact-form"],
         ["Login", "/login"],
       ].map(([title, url]) => (
         <div className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:text-slate-900 dark:text-gray-50 dark:hover:text-white">
