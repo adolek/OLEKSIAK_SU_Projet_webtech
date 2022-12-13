@@ -52,6 +52,7 @@ const Create = () => {
         </label>
         <div>
           <input
+            type="text"
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -87,6 +88,7 @@ const Create = () => {
         </label>
         <div>
           <input
+            type="text"
             id="author"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
