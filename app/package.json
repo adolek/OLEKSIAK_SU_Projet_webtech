@@ -7,6 +7,7 @@
     "@supabase/ui": "^0.36.5",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.7",
+    "gravatar": "^1.8.2",
     "md5": "^2.3.0",
     "next": "^12.3.1",
     "react": "^18.2.0",

@@ -19,9 +19,11 @@ const Login = () => {
           theme="light"
         />
       ) : (
+        
         <Account session={session} />
       )}
     </main>
+    
   );
 };
 
