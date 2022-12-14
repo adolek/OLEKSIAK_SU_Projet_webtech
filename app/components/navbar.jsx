@@ -5,6 +5,7 @@ import { BsSun } from "react-icons/bs";
 import { FiMoon } from "react-icons/fi";
 import Link from "next/link.js";
 import { useEffect, useState } from "react";
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
 
 const Navbar = () => {
   const [colorTheme, setTheme] = useDarkMode();
@@ -12,10 +13,27 @@ const Navbar = () => {
   const [user, setUser] = useState();
   const [error, setError] = useState();
 
+  const session = useSession();
+  const supabase = useSupabaseClient();
+
   /*useEffect(() => {
     fetch("http://localhost:3000/api/profile")
       .then((res) => res.json())
       .then((data) => setUser(data));
+  }, []);*/
+
+  /*useEffect(() => {
+    async function fetchUser() {
+      try {
+        const res = await fetch("http://localhost:3000/api/profile");
+        const data = await res.json();
+        setUser(data);
+      } catch (err) {
+        console.error(err);
+        setError(error);
+      }
+    }
+    fetchUser();
   }, []);*/
 
   useEffect(() => {

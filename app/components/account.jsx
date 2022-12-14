@@ -3,8 +3,10 @@ import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 import Avatar from '../components/avatar'
 
 export default function Account({ session }) {
+  
   const supabase = useSupabaseClient()
   const user = useUser()
+
   const [loading, setLoading] = useState(true)
   const [full_name, setFull_name] = useState(null)
   const [password, setPassword] = useState(null)

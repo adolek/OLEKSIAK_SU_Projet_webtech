@@ -1,14 +1,10 @@
 import React from "react";
 import Head from "next/head";
-import { useContext } from "react";
-import { UserContext } from "./userContext";
 import { useEffect, useState } from "react";
 import supabase from "../supabaseClient";
 import Link from "next/link";
 
 const ContactsForm = () => {
-  const { user } = useContext(UserContext);
-
   const [contacts, setContacts] = useState(null);
 
   useEffect(() => {
@@ -32,10 +28,6 @@ const ContactsForm = () => {
       <Head>
         <title>contacts</title>
       </Head>
-
-      <div className="py-5 bg-grey-800 dark:text-gray-50">
-        Hello {user?.username}
-      </div>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="py-5 text-transparent bg-clip-text text-center font-bold text-6xl bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
