@@ -8,22 +8,6 @@ const Login = () => {
   const supabase = useSupabaseClient();
 
   return (
-<<<<<<< Updated upstream
-    <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-      {!session ? (
-        <Auth
-          providers={["github"]}
-          supabaseClient={supabase}
-          appearance={{ theme: ThemeSupa }}
-          theme="light"
-        />
-      ) : (
-        
-        <Account session={session} />
-      )}
-    </main>
-    
-=======
     <div className="flex min-h-screen flex-col items-center justify-center">
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         {!session ? (
@@ -38,7 +22,6 @@ const Login = () => {
         )}
       </main>
     </div>
->>>>>>> Stashed changes
   );
 };
 

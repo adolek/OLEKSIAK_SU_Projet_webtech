@@ -14,12 +14,11 @@ import gravatar from 'gravatar';
 
 export default function Avatar({email}) {
   const avatarUrl = gravatar.url(email, {
-    s: '200',  // size
-    r: 'pg',   // rating
-    d: 'identicon'    // default
+    s: '200',  
+    d: 'identicon'    
   });
 
   return (
-    <img src={avatarUrl} alt="Gravatar" />
+    <img src={avatarUrl} alt="Gravatar" className="rounded-full"/>
   );
 }
