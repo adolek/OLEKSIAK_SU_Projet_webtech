@@ -1,5 +1,8 @@
 import supabase from "../../supabaseClient";
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import Create from "../createComment";
+
 import { comment } from "postcss";
 
 export async function getServerSideProps({ params }) {
@@ -84,6 +87,44 @@ export default function Details({ post = {} }) {
     fetchComments();
   }, []);
 
+  const updateComment = async (e) => {
+    e.preventDefault();
+
+    const { data, error } = await supabase
+      .from("comments")
+      .update({ comments })
+      .eq("articles_id", post.id)
+      .select();
+
+    if (error) {
+      console.log(error);
+      alert("Please fill the fields correctly !");
+    }
+    if (data) {
+      console.log(data);
+      alert("Data have been updated thank you !");
+    }
+  };
+
+  const deleteComment = async (e) => {
+    e.preventDefault();
+
+    const { data, error } = await supabase
+      .from("comments")
+      .delete()
+      .eq("articles_id", post.id)
+      .select();
+
+    if (error) {
+      console.log(error);
+      alert("error !");
+    }
+    if (data) {
+      console.log(data);
+      alert("Data have been deleted thank you !");
+    }
+  };
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center dark:text-gray-50">
@@ -143,16 +184,24 @@ export default function Details({ post = {} }) {
             </button>
           </form>
         </div>
-        <div className="mt-6 w-96 rounded-xl border p-6 text-left ">
-          <p>Comments : </p>
-          {comments && (
-            <div>
-              {comments.map((comment) => (
-                <h1>{comment.content}</h1>
-              ))}
-            </div>
-          )}
-        </div>
+
+        {comments && (
+          <form>
+            {comments.map((comment) => (
+              <div className="mt-6 w-96 rounded-xl border p-6 text-left ">
+                {comment.commentContent}
+                <button
+                  className="hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow dark:bg-gray-800 dark:text-white"
+                  onClick={deleteComment}
+                >
+                  delete
+                </button>
+              </div>
+            ))}
+          </form>
+        )}
+
+        <Create articles_id={post.id} />
       </main>
     </div>
   );

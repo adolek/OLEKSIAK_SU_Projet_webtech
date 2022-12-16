@@ -38,7 +38,7 @@ const ContactsForm = () => {
             <div>
               {contacts.map((contact) => (
                 <Link href={"/contact/" + contact.id} key={contact.id}>
-                  <div className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
+                  <div className="shadow-lg mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
                     <h1>
                       Name: {contact.firstname} {contact.lastname}
                     </h1>
@@ -48,6 +48,13 @@ const ContactsForm = () => {
             </div>
           </div>
         )}
+        <div className="py-2">
+          <Link href="../contact-form">
+            <button className="hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow dark:bg-gray-800 dark:text-white">
+              Contact us
+            </button>
+          </Link>
+        </div>
       </main>
     </div>
   );

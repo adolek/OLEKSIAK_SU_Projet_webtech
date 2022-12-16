@@ -18,7 +18,7 @@ function App() {
         </p>
 
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a className="mt-6 w-96 rounded-xl border p-6 text-left">
+          <a className=" shadow-lg mt-6 w-96 rounded-xl border p-6 text-left">
             <h3 className="text-2xl font-bold">Adrien </h3>
             <h3 className="mt-4 text-xl hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
               {" "}
@@ -38,7 +38,7 @@ function App() {
               Like to code website, going out and have fun
             </p>
           </a>
-          <a className="mt-6 w-96 rounded-xl border p-6 text-left">
+          <a className="shadow-lg mt-6 w-96 rounded-xl border p-6 text-left">
             <h3 className="text-2xl font-bold">David </h3>
             <h3 className="mt-4 text-xl hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
               {" "}

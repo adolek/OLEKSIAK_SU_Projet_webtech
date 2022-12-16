@@ -39,7 +39,7 @@ const Create = () => {
         To contact us
       </h2>
       <form onSubmit={handleSubmit}>
-        <label className="dark:text-white" htmlFor="fistname">
+        <label className="dark:text-white " htmlFor="fistname">
           Firstname:
         </label>
         <div>

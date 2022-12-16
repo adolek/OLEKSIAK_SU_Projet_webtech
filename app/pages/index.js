@@ -75,7 +75,7 @@ function App() {
 
           <a
             href="https://tailwindcss.com/"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text text-8xl bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600"
+            className="shadow-lg mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text text-8xl bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600"
           >
             <h3 className="text-2xl font-bold">Tailwinds &rarr;</h3>
             <p className="mt-4 text-xl">Find information about Tailwinds.</p>

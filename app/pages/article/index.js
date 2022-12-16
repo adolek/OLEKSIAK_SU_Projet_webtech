@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import supabase from "../supabaseClient";
+import supabase from "../../supabaseClient";
 import Link from "next/link";
 
 const Articles = () => {
@@ -38,7 +38,7 @@ const Articles = () => {
             <div>
               {articles.map((article) => (
                 <Link href={"/article/" + article.id} key={article.id}>
-                  <div className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
+                  <div className=" shadow-lg mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
                     <h1>Title: {article.title}</h1>
                   </div>
                 </Link>
@@ -46,6 +46,13 @@ const Articles = () => {
             </div>
           </div>
         )}
+        <div className="py-2">
+          <Link href="createArticle">
+            <button className="hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow dark:bg-gray-800 dark:text-white">
+              Create New Article
+            </button>
+          </Link>
+        </div>
       </main>
     </div>
   );
