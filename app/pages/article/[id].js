@@ -1,5 +1,6 @@
 import supabase from "../../supabaseClient";
 import { useState, useEffect } from "react";
+import { comment } from "postcss";
 
 export async function getServerSideProps({ params }) {
   const { data: post, error } = await supabase
@@ -23,6 +24,7 @@ export default function Details({ post = {} }) {
   const [title, setTitle] = useState(post.title);
   const [content, setContent] = useState(post.content);
   const [date, setDate] = useState(post.date);
+  const [comments, setComments] = useState(null);
 
   const updateArticle = async (e) => {
     e.preventDefault();
@@ -61,6 +63,26 @@ export default function Details({ post = {} }) {
       alert("Data have been deleted thank you !");
     }
   };
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      const { data, error } = await supabase
+        .from("comments")
+        .select("*")
+        .eq("articles_id", post.id);
+
+      if (error) {
+        console.log(error);
+        setComments(null);
+      }
+      if (data) {
+        console.log(data);
+        setComments(data);
+      }
+    };
+
+    fetchComments();
+  }, []);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
@@ -123,6 +145,13 @@ export default function Details({ post = {} }) {
         </div>
         <div className="mt-6 w-96 rounded-xl border p-6 text-left ">
           <p>Comments : </p>
+          {comments && (
+            <div>
+              {comments.map((comment) => (
+                <h1>{comment.content}</h1>
+              ))}
+            </div>
+          )}
         </div>
       </main>
     </div>

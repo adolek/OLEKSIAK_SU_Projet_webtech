@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import supabase from "../supabaseClient";
+import supabase from "../../supabaseClient";
 import Link from "next/link";
 
 const ContactsForm = () => {
