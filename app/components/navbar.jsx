@@ -1,4 +1,3 @@
-
 import React from "react";
 import Image from "next/image";
 import useDarkMode from "../hooks/useDarkMode";
@@ -6,18 +5,49 @@ import { BsSun } from "react-icons/bs";
 import { FiMoon } from "react-icons/fi";
 import Link from "next/link.js";
 import { useEffect, useState } from "react";
-import { useUser, useSupabaseClient ,useSession} from '@supabase/auth-helpers-react'
-import Getuser from "./getuser";
+import { useSupabaseClient ,useSession,useUser} from '@supabase/auth-helpers-react'
 
 const Navbar = () => {
   const [colorTheme, setTheme] = useDarkMode();
 
-  //const [user, setUser] = useState();
   const [error, setError] = useState();
 
-  const user = useUser();
-  const session = useSession();
-  const supabase = useSupabaseClient();
+  const supabase = useSupabaseClient()
+  const user = useUser()
+  const session = useSession()
+
+  const [full_name, setFullname] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    getUsername()
+  }, [session])
+
+    async function getUsername() {
+
+     try {
+      setLoading(true)
+
+      let { data, error, status } = await supabase
+        .from('profiles')
+        .select('full_name')
+        .eq('id', user.id)
+        .single()
+
+      if (error && status !== 406) {
+        setFullname(null)
+      }
+
+      if (data) {
+        setFullname(data.full_name)
+      }
+      } catch (error) {
+      //alert('Error loading user data!')
+      console.log(error)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   /*useEffect(() => {
     fetch("http://localhost:3000/api/profile")
@@ -49,10 +79,12 @@ const Navbar = () => {
 
   return (
     <nav className="relative w-full flex sm:justify-center space-x-4 flex-wrap items-center justify-between py-3 bg-gray-100 dark:bg-gray-700 focus:text-gray-700 shadow-lg">
-      <div className="logo">
+      <div>
         <Image src="/ece.png" width={120} height={45} />
-        User : <Getuser session={session} />
       </div>
+      {full_name&&(<div className="dark:text-white">
+        Hello {full_name} !
+      </div>)}
       {[
         ["Home", "/"],
         ["Articles", "/article"],

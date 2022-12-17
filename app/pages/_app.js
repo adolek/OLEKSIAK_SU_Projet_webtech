@@ -12,15 +12,15 @@ export default function MyApp({ Component, pageProps }) {
   const value = useMemo(() => ({ user, setUser }), [user, setUser]);
 
   return (
-    <Layout>
-      <UserContext.Provider value={value}>
-        <SessionContextProvider
-          supabaseClient={supabase}
-          initialSession={pageProps.initialSession}
-        >
+    <SessionContextProvider
+      supabaseClient={supabase}
+      initialSession={pageProps.initialSession}
+    >
+      <Layout>
+        <UserContext.Provider value={value}>
           <Component {...pageProps} />
-        </SessionContextProvider>
-      </UserContext.Provider>
-    </Layout>
+        </UserContext.Provider>
+      </Layout>
+    </SessionContextProvider>
   );
 }

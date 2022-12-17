@@ -16,7 +16,7 @@ const NotFound = () => {
         <h1 className="py-5 text-transparent bg-clip-text text-center font-bold text-8xl bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
           Ooops...
         </h1>
-        <h2>That page cannot be found :(</h2>
+        <h2>That page cannot be found </h2>
         <p>Going back to the Home page...</p>
       </main>
     </div>

@@ -1,8 +1,16 @@
 import { useState, useEffect } from 'react'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 import Avatar from '../components/avatar'
+import {useRouter} from "next/router"
 
 export default function Account({ session }) {
+
+  const router = useRouter()
+
+  const signOut = () =>{
+    supabase.auth.signOut()
+    router.push("/");
+  }
   
   const supabase = useSupabaseClient()
   const user = useUser()
@@ -61,15 +69,16 @@ export default function Account({ session }) {
     } finally {
       setLoading(false)
     }
+    router.push("/");
   }
 
   return (
-    <div className="form-widget">
+    <div className="form-widge">
       <div>
         <Avatar email={session.user.email}/>
       </div>
       <div>
-        <label htmlFor="email">Email</label>
+        <div className="dark:text-white" htmlFor="email">Email</div>
         <input 
         id="email" 
         type="text" 
@@ -77,7 +86,7 @@ export default function Account({ session }) {
         />
       </div>
       <div>
-        <label htmlFor="full_name">Full name</label>
+        <label className="dark:text-white" htmlFor="full_name">Full name</label>
         <input
           id="full_name"
           type="text"
@@ -86,7 +95,7 @@ export default function Account({ session }) {
         />
       </div>
       <div>
-        <label htmlFor="password">Password</label>
+        <label className="dark:text-white" htmlFor="password">Password</label>
         <input
           id="password"
           type="password"
@@ -106,7 +115,7 @@ export default function Account({ session }) {
       </div>
 
       <div>
-        <button className="button block" onClick={() => supabase.auth.signOut()}>
+        <button className="button block" onClick={signOut}>
           Log out
         </button>
       </div>
