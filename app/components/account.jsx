@@ -7,9 +7,21 @@ export default function Account({ session }) {
 
   const router = useRouter()
 
-  const signOut = () =>{
-    supabase.auth.signOut()
-    router.push("/");
+   async function signOut () {
+
+     try {
+      setLoading(true)
+
+      let { error } = await supabase.auth.signOut()
+      if (error) throw error
+      alert('Logged out!')
+    } catch (error) {
+      alert('Error logging out !')
+      console.log(error)
+    } finally {
+      setLoading(false)
+    }
+    router.reload(window.location.pathname)
   }
   
   const supabase = useSupabaseClient()
@@ -18,6 +30,7 @@ export default function Account({ session }) {
   const [loading, setLoading] = useState(true)
   const [full_name, setFull_name] = useState(null)
   const [password, setPassword] = useState(null)
+  const [email, setEmail] = useState(null)
 
   useEffect(() => {
     getProfile()
@@ -29,7 +42,7 @@ export default function Account({ session }) {
 
       let { data, error, status } = await supabase
         .from('profiles')
-        .select(`full_name, password`)
+        .select(`full_name, password,email`)
         .eq('id', user.id)
         .single()
 
@@ -40,6 +53,7 @@ export default function Account({ session }) {
       if (data) {
         setFull_name(data.full_name)
         setPassword(data.password)
+        setEmail(data.email)
       }
     } catch (error) {
       alert('Error loading user data!')
@@ -49,7 +63,7 @@ export default function Account({ session }) {
     }
   }
 
-  async function updateProfile({ full_name, password}) {
+  async function updateProfile({ full_name, password, email}) {
     try {
       setLoading(true)
 
@@ -58,6 +72,7 @@ export default function Account({ session }) {
         updated_at: new Date().toISOString(),
         full_name,
         password,
+        email
       }
 
       let { error } = await supabase.from('profiles').upsert(updates)
@@ -69,7 +84,7 @@ export default function Account({ session }) {
     } finally {
       setLoading(false)
     }
-    router.push("/");
+    router.reload(window.location.pathname)
   }
 
   return (
@@ -83,6 +98,7 @@ export default function Account({ session }) {
         id="email" 
         type="text" 
         value={session.user.email} disabled 
+        onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <div>
@@ -106,8 +122,8 @@ export default function Account({ session }) {
 
       <div>
         <button
-          className="button primary block"
-          onClick={() => updateProfile({ full_name, password })}
+          className="hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow dark:bg-gray-800 dark:text-white"
+          onClick={() => updateProfile({ full_name, password ,email})}
           disabled={loading}
         >
           {loading ? 'Loading ...' : 'Update'}
@@ -115,7 +131,8 @@ export default function Account({ session }) {
       </div>
 
       <div>
-        <button className="button block" onClick={signOut}>
+        <button 
+          className="hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow dark:bg-gray-800 dark:text-white" onClick={signOut}>
           Log out
         </button>
       </div>

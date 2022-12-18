@@ -1,35 +1,85 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import supabase from "../supabaseClient";
+import { useRouter } from "next/router";
+
+import {
+  useSupabaseClient,
+  useSession,
+  useUser,
+} from "@supabase/auth-helpers-react";
+import { Router } from "express";
 
 const Create = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [date, setDate] = useState("");
-  const [author, setAuthor] = useState("");
+  const [full_name, setFullname] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  const supabase = useSupabaseClient();
+  const user = useUser();
+  const session = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    getUsername();
+  }, [session]);
+
+  async function getUsername() {
+    try {
+      setLoading(true);
+
+      let { data, error, status } = await supabase
+        .from("profiles")
+        .select("*")
+        .eq("id", user.id)
+        .single();
+
+      if (error && status !== 406) {
+        setFullname(null);
+      }
+
+      if (data) {
+        setFullname(data.full_name);
+      }
+    } catch (error) {
+      //alert('Error loading user data!')
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!title || !content || !date || !author) {
-      alert("Please fill in all the fields correctly !");
+    if (!session) {
+      alert("Please login !");
       return;
-    }
+    } else {
+      if (!title || !content || !date) {
+        alert("Please fill in all the fields correctly !");
+        return;
+      }
 
-    if (title && content && date && author) {
-      alert("Data have been sended thank you !");
-    }
+      if (title && content && date) {
+        alert("Article has been created thank you !");
+      }
 
-    const { data, error } = await supabase
-      .from("articles")
-      .insert([{ title, date, content, author }]);
+      const { data, error } = await supabase
+        .from("articles")
+        .insert([
+          { title, date, content, author: full_name, profiles_id: user.id },
+        ]);
 
-    if (error) {
-      console.log(error);
-      alert("Please fill the fields correctly !");
-    }
-    if (data) {
-      console.log(data);
-      alert("Data have been created thank you !");
+      if (error) {
+        console.log(error);
+      }
+      if (data) {
+        console.log(data);
+        alert("Article has been created thank you !");
+      }
+      router.push("/");
     }
   };
 
@@ -73,18 +123,6 @@ const Create = () => {
             id="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-          />
-        </div>
-
-        <label className="dark:text-white" htmlFor="author">
-          Author:
-        </label>
-        <div>
-          <input
-            type="text"
-            id="author"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
           />
         </div>
 

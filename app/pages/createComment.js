@@ -1,38 +1,67 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import supabase from "../supabaseClient";
+import { useRouter } from "next/router";
+import {
+  useSupabaseClient,
+  useSession,
+  useUser,
+} from "@supabase/auth-helpers-react";
 
 export default function Create({ articles_id }) {
   const [commentContent, setCommentContent] = useState("");
 
+  const supabase = useSupabaseClient();
+  const user = useUser();
+  const session = useSession();
+
+  const router = useRouter();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    {
+      if (!commentContent) {
+        alert("Please fill in the field correctly !");
+        return;
+      }
 
-    if (!commentContent) {
-      alert("Please fill in the field correctly !");
-      return;
-    }
+      if (commentContent) {
+        alert("comment has been created thank you !");
+      }
 
-    if (commentContent) {
-      alert("Data have been sended thank you !");
-    }
+      if (session) {
+        const { data, error } = await supabase
+          .from("comments")
+          .insert([{ articles_id, commentContent, profiles_id: user.id }]);
+        if (error) {
+          console.log(error);
+          alert("Please fill the field correctly !");
+        }
 
-    const { data, error } = await supabase
-      .from("comments")
-      .insert([{ articles_id, commentContent }]);
+        if (data) {
+          console.log(data);
+          alert("Comment has been created thank you !");
+        }
+      } else {
+        const { data, error } = await supabase
+          .from("comments")
+          .insert([{ articles_id, commentContent }]);
+        if (error) {
+          console.log(error);
+          alert("Please fill the field correctly !");
+        }
 
-    if (error) {
-      console.log(error);
-      alert("Please fill the field correctly !");
-    }
-    if (data) {
-      console.log(data);
-      alert("Comment have been created thank you !");
+        if (data) {
+          console.log(data);
+          alert("Comment has been created thank you !");
+        }
+      }
+      router.reload(window.location.pathname);
     }
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
-      <h2 className="py-5 text-transparent bg-clip-text text-center font-bold text-6xl bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
+    <div className="py-10 items-center justify-center">
+      <h2 className="text-transparent bg-clip-text text-center font-bold text-6xl bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
         Create Comment
       </h2>
       <form onSubmit={handleSubmit}>

@@ -15,7 +15,7 @@ const Login = () => {
             providers={["github"]}
             supabaseClient={supabase}
             appearance={{ theme: ThemeSupa }}
-            theme="light"
+            theme="light dark:dark"
           />
         ) : (
           <Account session={session} />

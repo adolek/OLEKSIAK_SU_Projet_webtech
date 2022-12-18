@@ -7,6 +7,7 @@ import {
   useSession,
   useUser,
 } from "@supabase/auth-helpers-react";
+import { useRouter } from "next/router";
 
 import { comment } from "postcss";
 
@@ -33,6 +34,7 @@ export default function Details({ post = {} }) {
   const [content, setContent] = useState(post.content);
   const [date, setDate] = useState(post.date);
   const [comments, setComments] = useState(null);
+  const [full_name, setFullname] = useState(null);
 
   const [fetchArticle, setFetchArticle] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -40,6 +42,8 @@ export default function Details({ post = {} }) {
   const supabase = useSupabaseClient();
   const user = useUser();
   const session = useSession();
+
+  const router = useRouter();
 
   const updateArticle = async (e) => {
     e.preventDefault();
@@ -58,6 +62,7 @@ export default function Details({ post = {} }) {
       console.log(data);
       alert("Data have been updated thank you !");
     }
+    router.reload(window.location.pathname);
   };
 
   const deleteArticle = async (e) => {
@@ -77,6 +82,7 @@ export default function Details({ post = {} }) {
       console.log(data);
       alert("Data have been deleted thank you !");
     }
+    router.push("/");
   };
 
   useEffect(() => {
@@ -98,44 +104,6 @@ export default function Details({ post = {} }) {
 
     fetchComments();
   }, []);
-
-  /*const updateComment = async (e) => {
-    e.preventDefault();
-
-    const { data, error } = await supabase
-      .from("comments")
-      .update({ comments })
-      .eq("articles_id", post.id)
-      .select();
-
-    if (error) {
-      console.log(error);
-      alert("Please fill the fields correctly !");
-    }
-    if (data) {
-      console.log(data);
-      alert("Data have been updated thank you !");
-    }
-  };*/
-
-  const deleteComment = async (e) => {
-    e.preventDefault();
-
-    const { data, error } = await supabase
-      .from("comments")
-      .delete()
-      .eq("articles_id", post.id)
-      .select();
-
-    if (error) {
-      console.log(error);
-      alert("error !");
-    }
-    if (data) {
-      console.log(data);
-      alert("Data have been deleted thank you !");
-    }
-  };
 
   useEffect(() => {
     fetchArticlesButtons();
@@ -165,6 +133,35 @@ export default function Details({ post = {} }) {
       setFetchArticle(null);
     } finally {
       setLoading(null);
+    }
+  }
+
+  useEffect(() => {
+    getUsername();
+  }, [session]);
+
+  async function getUsername() {
+    try {
+      setLoading(true);
+
+      let { data, error, status } = await supabase
+        .from("profiles")
+        .select("*")
+        .eq("id", profiles_id)
+        .single();
+
+      if (error && status !== 406) {
+        setFullname(null);
+      }
+
+      if (data) {
+        setFullname(data.full_name);
+      }
+    } catch (error) {
+      //alert('Error loading user data!')
+      console.log(error);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -238,15 +235,11 @@ export default function Details({ post = {} }) {
         {comments && (
           <form>
             {comments.map((comment) => (
-              <div className="mt-6 w-96 rounded-xl border p-6 text-left ">
-                {comment.commentContent}
-                <button
-                  className="hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow dark:bg-gray-800 dark:text-white"
-                  onClick={deleteComment}
-                >
-                  delete
-                </button>
-              </div>
+              <Link href={"/comment/" + comment.id} key={comment.id}>
+                <div className="cursor-pointer mt-6 w-96 rounded-xl border p-6 text-left ">
+                  {full_name} {comment.commentContent}
+                </div>
+              </Link>
             ))}
           </form>
         )}

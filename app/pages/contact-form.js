@@ -34,7 +34,7 @@ const Create = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div className="cursor-default flex min-h-screen flex-col items-center justify-center">
       <h2 className="py-5 text-transparent bg-clip-text text-center font-bold text-6xl bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
         To contact us
       </h2>

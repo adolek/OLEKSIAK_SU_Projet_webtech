@@ -9,17 +9,17 @@ function App() {
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center dark:text-gray-50">
-        <h1 className="py-5 text-transparent bg-clip-text text-center font-bold text-6xl bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
+        <h1 className="cursor-default py-5 text-transparent bg-clip-text text-center font-bold text-6xl bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
           About us
         </h1>
 
-        <p className="mt-3 text-2xl">
+        <p className="mt-3 text-2xl cursor-default">
           Just two students working hard to create this website.
         </p>
 
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
           <a className=" shadow-lg mt-6 w-96 rounded-xl border p-6 text-left">
-            <h3 className="text-2xl font-bold">Adrien </h3>
+            <h3 className="text-2xl font-bold cursor-default">Adrien </h3>
             <h3 className="mt-4 text-xl hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
               {" "}
               <a href="https://github.com/adrienoleksiak">
@@ -34,12 +34,12 @@ function App() {
                 &rarr; mail: adrien.oleksiaksachoux@edu.ece.fr
               </a>
             </h3>
-            <p className="mt-4 text-xl">
+            <p className="mt-4 text-xl cursor-default">
               Like to code website, going out and have fun
             </p>
           </a>
           <a className="shadow-lg mt-6 w-96 rounded-xl border p-6 text-left">
-            <h3 className="text-2xl font-bold">David </h3>
+            <h3 className="text-2xl font-bold cursor-default">David </h3>
             <h3 className="mt-4 text-xl hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
               {" "}
               <a href="https://github.com/Dvdbx"> &rarr; github: Dvdbx</a>
@@ -51,7 +51,7 @@ function App() {
                 &rarr; mail: davidboxiang.su@edu.ece.fr
               </a>
             </h3>
-            <p className="mt-4 text-xl">
+            <p className="mt-4 text-xl cursor-default">
               Like to learn, chill at home and read manga
             </p>
           </a>
