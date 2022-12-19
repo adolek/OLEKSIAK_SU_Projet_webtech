@@ -35,7 +35,7 @@ function App() {
               </a>
             </h3>
             <p className="mt-4 text-xl cursor-default">
-              Like to code website, going out and have fun
+              Like cycling, going out and have fun
             </p>
           </a>
           <a className="shadow-lg mt-6 w-96 rounded-xl border p-6 text-left">

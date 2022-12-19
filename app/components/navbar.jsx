@@ -11,6 +11,7 @@ const Navbar = () => {
   const [colorTheme, setTheme] = useDarkMode();
 
   const [error, setError] = useState();
+  let login = ""
 
   const supabase = useSupabaseClient()
   const user = useUser()
@@ -18,6 +19,7 @@ const Navbar = () => {
 
   const [full_name, setFullname] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [logged, setLogged] = useState(false)
 
   useEffect(() => {
     getUsername()
@@ -36,10 +38,12 @@ const Navbar = () => {
 
       if (error && status !== 406) {
         setFullname(null)
+        setLogged(false)
       }
 
       if (data) {
         setFullname(data.full_name)
+        setLogged(true)
       }
       } catch (error) {
       //alert('Error loading user data!')
@@ -47,6 +51,13 @@ const Navbar = () => {
     } finally {
       setLoading(false)
     }
+  }
+
+  if(logged){
+    login="Profile"
+  }
+  if(!logged){
+    login="Login"
   }
 
   /*useEffect(() => {
@@ -90,7 +101,7 @@ const Navbar = () => {
         ["Articles", "/article"],
         ["About", "/about"],
         ["Our contacts", "/contact"],
-        ["Login", "/login"],
+        [login, "/login"],
       ].map(([title, url]) => (
         <div className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:text-slate-900 dark:text-gray-50 dark:hover:text-white">
           <Link href={url}>{title}</Link>
