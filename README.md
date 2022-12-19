@@ -1,4 +1,11 @@
-# Webtech repository
+# Blogging application - ECE Webtech project
+
+This is a joke blogging application 
+
+## Production 
+
+- Vercel URL: https://...
+- Supabase project URL: https://app.supabase.com/project/idlqcczhywpcclyezbml
 
 ## Motivation
 
@@ -15,6 +22,7 @@ Project using technologies :
 
 1. Our project app (building it labs after labs since lab 4)
 2. Our previous labs (until lab 3)
+3. Using online supabase application
 
 ## Installation
 
@@ -35,17 +43,11 @@ Install with :
 
 ## Development
 
-First, run the development server:
-
-```bash
-npm start
-```
-
-or
-
-```bash
-npm run dev
-```
+* Start the the application
+  # Install dependencies (use yarn or npm)
+  npm install
+  npm run build
+  npm start
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -53,3 +55,74 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - [Adrien OLEKSIAK](https://github.com/adrienoleksiak)
 - [David SU](https://github.com/dvdbx)
+
+## Tasks
+  
+**Project management:**
+
+* Naming convention   
+  *place your graduation and comments*
+
+* Project structure   
+  *place your graduation and comments*
+
+* Git   
+  *place your graduation and comments*
+
+* Code quality   
+  *place your graduation and comments*
+
+* Design, UX, and content (tailwinds) 
+  *place your graduation and comments*
+
+**Application development:**
+
+* Home page (index)
+  *place your graduation and comments*
+
+* Login and profile page (profile and account)
+  *place your graduation and comments*
+
+* New articles creation (createArticle)
+  *place your graduation and comments*
+
+* New comment creation  (createComment)
+  *place your graduation and comments*
+
+* Resource access control (RLS on supabase)
+  *place your graduation and comments*
+
+* Article modification (folder article)  
+  *place your graduation and comments*
+
+* Article removal (folder article)  
+  *place your graduation and comments*
+
+* Comment modification (folder comment)
+  *place your graduation and comments*
+
+* Comment removal (folder comment)
+  *place your graduation and comments*
+
+* Account settings (profile)   
+  *place your graduation and comments*
+  
+* Gravatar integration (avatar)
+  *place your graduation and comments*
+
+* Light/dark theme (useDarkMode hook)
+  *place your graduation and comments*
+
+* WYSIWYG integration   
+  *place your graduation and comments*
+
+* Accent color selection   
+  *place your graduation and comments*
+
+## Bonus
+
+* Adding contacts (contact-form)
+  *place your graduation and comments*
+
+* Fetching all the contacts (folder contact)
+  *place your graduation and comments*

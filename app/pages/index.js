@@ -7,7 +7,7 @@ class Welcome extends React.Component {
   render() {
     return (
       <p className="mt-3 text-2xl dark:text-gray-50">
-        Welcome, we are {this.props.name}, this is our first website
+        Welcome, we are {this.props.name}, this is our blog project
       </p>
     );
   }

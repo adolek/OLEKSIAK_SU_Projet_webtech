@@ -129,11 +129,24 @@ export default function Account({ session }) {
           {loading ? 'Loading ...' : 'Update'}
         </button>
       </div>
-
       <div>
         <button 
           className="hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow dark:bg-gray-800 dark:text-white" onClick={signOut}>
           Log out
+        </button>
+      </div>
+      <div>
+        <button 
+          className="hover:bg-red-100 text-red-800 font-semibold py-2 px-4 border border-red-400 rounded shadow " >
+            red
+        </button>
+        <button 
+          className="hover:bg-blue-100 text-blue-800 font-semibold py-2 px-4 border border-blue-400 rounded shadow " >
+            blue
+        </button>
+        <button 
+          className="hover:bg-green-100 text-green-800 font-semibold py-2 px-4 border border-green-400 rounded shadow">
+            green
         </button>
       </div>
     </div>
