@@ -1,7 +1,8 @@
 import supabase from "../../supabaseClient";
 import Link from "next/link";
 import Create from "../createComment";
-import { useEffect, useState } from "react";
+import {Editor} from '@tinymce/tinymce-react'
+import { useEffect, useState, useRef } from "react";
 import {
   useSupabaseClient,
   useSession,
@@ -35,6 +36,7 @@ export default function Details({ post = {} }) {
   const [date, setDate] = useState(post.date);
   const [comments, setComments] = useState(null);
   const [full_name, setFullname] = useState(null);
+  const editorRef = useRef(null);
 
   const [fetchArticle, setFetchArticle] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -47,6 +49,10 @@ export default function Details({ post = {} }) {
 
   const updateArticle = async (e) => {
     e.preventDefault();
+
+    if (editorRef.current) {
+      setContent(editorRef.current.getContent());
+    }
 
     const { data, error } = await supabase
       .from("articles")
@@ -190,12 +196,27 @@ export default function Details({ post = {} }) {
                 Content:
               </label>
               <div>
-                <textarea
-                  className="dark:text-black w-80"
-                  type="text"
-                  id="content"
+                <Editor
+                  onInit={(evt, editor) => editorRef.current = editor}
                   value={content}
+                  placeholder="<p>Ecrivez votre contenu ici.</p>"
+                  apiKey="82nhcwhsadug2xceybwdoqcle6fajv6jp9oefyzpow5tq6fs"
+                  cloudChannel="dev"
                   onChange={(e) => setContent(e.target.value)}
+                  init={{
+                    height: 100,
+                    menubar: false,
+                    toolbar:
+                      "undo redo | formatselect | " +
+                      "bold italic backcolor | alignleft aligncenter " +
+                      "alignright alignjustify | bullist numlist outdent indent charmap | " +
+                      "image media removeformat table | preview code fullscreen " +
+                      "help",
+
+                    content_style:
+                      "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+        
+                  }}
                 />
               </div>
               <label className="dark:text-white" htmlFor="date">

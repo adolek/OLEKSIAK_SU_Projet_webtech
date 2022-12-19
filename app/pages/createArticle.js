@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
-import supabase from "../supabaseClient";
+import {Editor} from '@tinymce/tinymce-react'
+import React, { useRef } from 'react';
 import { useRouter } from "next/router";
-
 import {
   useSupabaseClient,
   useSession,
   useUser,
 } from "@supabase/auth-helpers-react";
-import { Router } from "express";
 
 const Create = () => {
   const [title, setTitle] = useState("");
@@ -20,6 +19,13 @@ const Create = () => {
   const user = useUser();
   const session = useSession();
   const router = useRouter();
+  const editorRef = useRef(null);
+    
+  function onClickHandler() {
+    if (editorRef.current) {
+      setContent(editorRef.current.getContent());
+    }
+  };
 
   useEffect(() => {
     getUsername();
@@ -83,7 +89,9 @@ const Create = () => {
     }
   };
 
+
   return (
+    <>
     <div className="flex min-h-screen flex-col items-center justify-center">
       <h2 className="py-5 text-transparent bg-clip-text text-center font-bold text-6xl bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
         Create Article
@@ -105,12 +113,27 @@ const Create = () => {
           Content:
         </label>
         <div>
-          <textarea
-            className="w-80"
-            type="text"
-            id="content"
+          <Editor
+            onInit={(evt, editor) => editorRef.current = editor}
             value={content}
+            placeholder="<p>Ecrivez votre contenu ici.</p>"
+            apiKey="82nhcwhsadug2xceybwdoqcle6fajv6jp9oefyzpow5tq6fs"
+            cloudChannel="dev"
             onChange={(e) => setContent(e.target.value)}
+            init={{
+              height: 100,
+              menubar: false,
+              toolbar:
+                "undo redo | formatselect | " +
+                "bold italic backcolor | alignleft aligncenter " +
+                "alignright alignjustify | bullist numlist outdent indent charmap | " +
+                "image media removeformat table | preview code fullscreen " +
+                "help",
+
+              content_style:
+                "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+  
+            }}
           />
         </div>
 
@@ -127,13 +150,19 @@ const Create = () => {
         </div>
 
         <div className="py-2">
-          <button className="hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow dark:bg-gray-800 dark:text-white">
+          <button onClick={onClickHandler} className="hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow dark:bg-gray-800 dark:text-white">
             Create Article
           </button>
         </div>
       </form>
     </div>
+    </>
   );
 };
 
 export default Create;
+
+
+
+
+
