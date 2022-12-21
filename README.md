@@ -126,3 +126,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 * Fetching all the contacts (folder contact)
   *place your graduation and comments*
+
+* Fetching user articles and comments (index)
+  *place your graduation and comments*

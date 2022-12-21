@@ -135,20 +135,6 @@ export default function Account({ session }) {
           Log out
         </button>
       </div>
-      <div>
-        <button 
-          className="hover:bg-red-100 text-red-800 font-semibold py-2 px-4 border border-red-400 rounded shadow " >
-            red
-        </button>
-        <button 
-          className="hover:bg-blue-100 text-blue-800 font-semibold py-2 px-4 border border-blue-400 rounded shadow " >
-            blue
-        </button>
-        <button 
-          className="hover:bg-green-100 text-green-800 font-semibold py-2 px-4 border border-green-400 rounded shadow">
-            green
-        </button>
-      </div>
     </div>
   )
 }
