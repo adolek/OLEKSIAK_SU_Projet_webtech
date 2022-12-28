@@ -1,6 +1,6 @@
 # Blogging application - ECE Webtech project
 
-This is a joke blogging application 
+This is a joke blogging application.
 
 ## Production 
 
@@ -17,12 +17,17 @@ Project using technologies :
 - [Node.js](https://nodejs.org/en/about/)
 - [React](https://reactjs.org/docs/getting-started.html)
 - [Tailwinds CSS](https://tailwindcss.com/)
+- [Next.js](https://nextjs.org)
+- [Express](https://expressjs.com)
+- [Supabase](https://supabase.com)
+- [Gravatar](https://fr.gravatar.com)
+- [TinyMCE Text Editor](https://github.com/tinymce/tinymce-react)
 
 ## What we did?
 
 1. Our project app (building it labs after labs since lab 4)
 2. Our previous labs (until lab 3)
-3. Using online supabase application
+3. Using online (and local) supabase database management service
 
 ## Installation
 
@@ -41,15 +46,16 @@ Install with :
   npm install
   ```
 
-## Development
+## Start the the application
 
-* Start the the application
-  # Install dependencies (use yarn or npm)
+Install dependencies (use yarn or npm)
+  ```bash
   npm install
   npm run build
   npm start
+  ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the app runing.
 
 ## Authors
 

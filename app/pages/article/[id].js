@@ -247,9 +247,9 @@ export default function Details({ post = {} }) {
             </form>
           ) : (
             <div>
-              <p>Content : <div dangerouslySetInnerHTML={{__html: post.content}}></div></p>
-              <p> Date : {post.date}</p>
-              <p> Author : {post.author}</p>
+              <p><div dangerouslySetInnerHTML={{__html: post.content}}></div><br/></p>
+              <p> by {post.author}</p><br/>
+              <p> {post.date}</p>
             </div>
           )}
         </div>

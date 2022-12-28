@@ -172,8 +172,8 @@ export default function Details({ post = {} }) {
           </form>
         ) : (
           <div className="mt-6 w-96 rounded-xl border p-6 text-left ">
-            <p>Content : {post.commentContent}</p>
-            <p>{full_name}</p>
+            <p>{post.commentContent}</p><br/>
+            <p>by {full_name}</p>
           </div>
         )}
       </main>

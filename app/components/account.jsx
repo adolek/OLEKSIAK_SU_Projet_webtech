@@ -129,6 +129,7 @@ export default function Account({ session }) {
           {loading ? 'Loading ...' : 'Update'}
         </button>
       </div>
+      <br/>
       <div>
         <button 
           className="hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow dark:bg-gray-800 dark:text-white" onClick={signOut}>

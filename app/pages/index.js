@@ -112,6 +112,22 @@ function App() {
             <h3 className="text-2xl font-bold">Tailwinds &rarr;</h3>
             <p className="mt-4 text-xl">Find information about Tailwinds.</p>
           </a>
+
+          <a
+            href="https://nextjs.org"
+            className="shadow-lg mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text text-8xl bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600"
+          >
+            <h3 className="text-2xl font-bold">Next &rarr;</h3>
+            <p className="mt-4 text-xl">Find information about Next.js.</p>
+          </a>
+
+          <a
+            href="https://supabase.com"
+            className="shadow-lg mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text text-8xl bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600"
+          >
+            <h3 className="text-2xl font-bold">Supabase &rarr;</h3>
+            <p className="mt-4 text-xl">Find information about Supabase.</p>
+          </a>
         </div>
         {articles && (
           <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full bg-grey-800 dark:text-gray-50">
