@@ -1,6 +1,6 @@
 import Layout from "../components/layout";
 import "../style/global.css";
-import { UserContext } from "./userContext";
+import { UserContext } from "../components/userContext";
 import { createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { SessionContextProvider } from "@supabase/auth-helpers-react";
 import React, { useState, useMemo } from "react";

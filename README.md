@@ -113,7 +113,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 * Light/dark theme (useDarkMode hook)
   *place your graduation and comments*
 
-* WYSIWYG integration   
+* WYSIWYG integration (createArticle, createComment, folder article, folder comment)
   *place your graduation and comments*
 
 * Accent color selection   

@@ -1,13 +1,12 @@
 import React from "react";
 import Head from "next/head";
 import { useContext } from "react";
-import { UserContext } from "./userContext";
+import { UserContext } from "../components/userContext";
 import { useEffect, useState } from "react";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import supabase from "../supabaseClient";
 
 const Profile = () => {
-
   const router = useRouter();
   const { user } = useContext(UserContext);
 
@@ -15,7 +14,7 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchContacts = async () => {
-      const { data, error } = await supabase.from("contacts").select('*');
+      const { data, error } = await supabase.from("contacts").select("*");
 
       if (error) {
         setContacts(null);
@@ -40,8 +39,14 @@ const Profile = () => {
       </div>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <button type="button" onClick={() => {supabase.auth.signOut();router.push('/login');}}>
-        Logout
+        <button
+          type="button"
+          onClick={() => {
+            supabase.auth.signOut();
+            router.push("/login");
+          }}
+        >
+          Logout
         </button>
       </main>
     </div>

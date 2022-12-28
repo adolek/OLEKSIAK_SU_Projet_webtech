@@ -1,7 +1,6 @@
 import React from "react";
 import Head from "next/head";
 import { useContext, useState, useEffect } from "react";
-import { UserContext } from "./userContext";
 import {
   useSupabaseClient,
   useSession,
