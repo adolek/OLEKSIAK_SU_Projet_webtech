@@ -32,9 +32,6 @@ export default function Account({ session }) {
   const [password, setPassword] = useState(null)
   const [email, setEmail] = useState(null)
 
-  const [articles, setArticles] = useState(null);
-  const [comments, setComments] = useState(null);
-
   useEffect(() => {
     getProfile()
   }, [session])
@@ -63,62 +60,6 @@ export default function Account({ session }) {
       console.log(error)
     } finally {
       setLoading(false)
-    }
-  }
-
-  useEffect(() => {
-    fetchArticles();
-  }, [session]);
-
-  async function fetchArticles() {
-    try {
-      setLoading(true);
-
-      let { data, error, status } = await supabase
-        .from("articles")
-        .select("*")
-        .eq("profiles_id", user.id);
-
-      if (error && status !== 406) {
-        throw error;
-      }
-
-      if (data) {
-        setArticles(data);
-      }
-    } catch (error) {
-      //alert("Error loading user data!");
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    fetchComments();
-  }, [session]);
-
-  async function fetchComments() {
-    try {
-      setLoading(true);
-
-      let { data, error, status } = await supabase
-        .from("comments")
-        .select("*")
-        .eq("profiles_id", user.id);
-
-      if (error && status !== 406) {
-        throw error;
-      }
-
-      if (data) {
-        setComments(data);
-      }
-    } catch (error) {
-      //alert("Error loading user data!");
-      console.log(error);
-    } finally {
-      setLoading(false);
     }
   }
 
@@ -195,34 +136,6 @@ export default function Account({ session }) {
           Log out
         </button>
       </div>
-      {articles && (
-          <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full bg-grey-800 dark:text-gray-50">
-            <div>
-              <h1>My articles </h1>
-              {articles.map((article) => (
-                <Link href={"/article/" + article.id} key={article.id}>
-                  <div className=" cursor-pointer shadow-lg mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
-                    <h1>Title: {article.title}</h1>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-        {comments && (
-          <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full bg-grey-800 dark:text-gray-50">
-            <div>
-              <h1>My comments </h1>
-              {comments.map((comment) => (
-                <Link href={"/comment/" + comment.id} key={comment.id}>
-                  <div className=" cursor-pointer shadow-lg mt-6 w-96 rounded-xl border p-6 text-left hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-600">
-                    <h1>Title: {comment.commentContent}</h1>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
     </div>
   )
 }
