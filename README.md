@@ -4,7 +4,7 @@ This is a joke blogging application.
 
 ## Production 
 
-- Vercel URL: https://oleksiak-su-projet-webtech-dfzxg5uhc-adrienoleksiak.vercel.app
+- Vercel URL: https://oleksiak-su-projet-webtech-eiyg9wou5-adrienoleksiak.vercel.app
 - Supabase project URL: https://app.supabase.com/project/idlqcczhywpcclyezbml
 
 ## Motivation
